@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://wkeoifo22m7a"]
+
+[ext_resource type="Script" path="res://letter_button.gd" id="1_wbo0f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28ife"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6laja"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go6wf"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsqgf"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1is5"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w80t"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="Theme" id="Theme_o4kov"]
+Button/styles/disabled = SubResource("StyleBoxFlat_6laja")
+Button/styles/focus = SubResource("StyleBoxFlat_go6wf")
+Button/styles/hover = SubResource("StyleBoxFlat_rsqgf")
+Button/styles/normal = SubResource("StyleBoxFlat_u1is5")
+Button/styles/pressed = SubResource("StyleBoxFlat_7w80t")
+
+[node name="button" type="Panel"]
+custom_minimum_size = Vector2(400, 175)
+offset_right = 400.0
+offset_bottom = 175.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_28ife")
+script = ExtResource("1_wbo0f")
+
+[node name="letter" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 175.0
+theme = SubResource("Theme_o4kov")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "E"
+
+[connection signal="mouse_entered" from="letter" to="." method="_on_letter_mouse_entered"]
+[connection signal="mouse_exited" from="letter" to="." method="_on_letter_mouse_exited"]
+[connection signal="pressed" from="letter" to="." method="_on_pressed"]

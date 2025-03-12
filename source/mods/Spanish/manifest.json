@@ -1,0 +1,9 @@
+{
+  "translations": true,
+  "version": "000",
+  "uuid": "3d638dcd-8eba-4947-acfe-b420b47e3d72",
+  "title": "Spanish",
+  "description":"Made by a friend",
+  "valid_letters":"abcdefghijklmnopqrstuvwxyzñóáé",
+  "translates_to":"English"
+}

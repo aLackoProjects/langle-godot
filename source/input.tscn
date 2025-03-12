@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2q42k5xuxy6"]
+
+[ext_resource type="Script" uid="uid://bppsxwu63odxm" path="res://input.gd" id="1_jexax"]
+[ext_resource type="PackedScene" uid="uid://bdoen2384i6fu" path="res://letter.tscn" id="1_rcsbj"]
+
+[node name="input" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = 407.0
+offset_right = -167.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jexax")
+
+[node name="0" parent="." instance=ExtResource("1_rcsbj")]
+id = 0
+
+[node name="1" parent="." instance=ExtResource("1_rcsbj")]
+position = Vector2(138, 0)
+id = 1
+
+[node name="2" parent="." instance=ExtResource("1_rcsbj")]
+position = Vector2(276, 0)
+
+[node name="3" parent="." instance=ExtResource("1_rcsbj")]
+position = Vector2(414, 0)
+id = 3
+
+[node name="4" parent="." instance=ExtResource("1_rcsbj")]
+position = Vector2(552, 0)
+id = 4
+
+[node name="5" parent="." instance=ExtResource("1_rcsbj")]
+position = Vector2(691, 0)
+id = 4

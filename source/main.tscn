@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://b17cvdm7dg0oi"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ckkv2"]
+[ext_resource type="PackedScene" uid="uid://4k7y20exgm2" path="res://words.tscn" id="2_7shrq"]
+[ext_resource type="PackedScene" uid="uid://bqqhlbuy8y6mg" path="res://hud.tscn" id="3_4lcy2"]
+[ext_resource type="PackedScene" uid="uid://wkeoifo22m7a" path="res://letter_button.tscn" id="4_fgs82"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smbn0"]
+bg_color = Color(0.415686, 0.4, 0.639216, 1)
+
+[node name="main" type="Control" node_paths=PackedStringArray("letter_button_root", "words_parent", "words", "scrollCon")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ckkv2")
+letter_button_root = NodePath("letters/VBoxContainer")
+words_parent = NodePath("MarginContainer")
+words = NodePath("MarginContainer/words")
+scrollCon = NodePath("letters")
+
+[node name="background" type="Panel" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smbn0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -360.0
+offset_bottom = 360.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 80
+
+[node name="words" parent="MarginContainer" instance=ExtResource("2_7shrq")]
+layout_mode = 2
+
+[node name="hud" parent="." instance=ExtResource("3_4lcy2")]
+z_index = 4
+layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="timerThing" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="letters" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 142.0
+offset_right = 1789.0
+offset_bottom = 1534.0
+scale = Vector2(0.5, 0.5)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="letters"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="special_char" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 68.0
+
+[node name="backspace" parent="special_char" instance=ExtResource("4_fgs82")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 825.0
+offset_right = 845.0
+offset_bottom = 1000.0
+scale = Vector2(0.5, 0.5)
+letter = "Backspace"
+offset = 40
+
+[node name="enter" parent="special_char" instance=ExtResource("4_fgs82")]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 825.0
+offset_right = 845.0
+offset_bottom = 1000.0
+scale = Vector2(0.5, 0.5)
+letter = "Enter"
+
+[connection signal="submit" from="MarginContainer/words" to="." method="submit"]
+[connection signal="reset" from="hud" to="." method="reset"]
+[connection signal="timeout" from="timerThing" to="." method="scuffed_fix"]
+[connection signal="letter_pressed" from="special_char/backspace" to="." method="on_alt_letter_press"]
+[connection signal="letter_pressed" from="special_char/enter" to="." method="on_alt_letter_press"]

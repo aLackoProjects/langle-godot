@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dykfn7bxtpbng"]
+
+[ext_resource type="Script" path="res://word.gd" id="1_i0ay3"]
+[ext_resource type="PackedScene" uid="uid://bdoen2384i6fu" path="res://letter.tscn" id="1_uhijb"]
+
+[node name="word" type="Control"]
+custom_minimum_size = Vector2(720, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 128.0
+script = ExtResource("1_i0ay3")
+
+[node name="0" parent="." instance=ExtResource("1_uhijb")]
+position = Vector2(65, 64)
+id = 0
+
+[node name="1" parent="." instance=ExtResource("1_uhijb")]
+position = Vector2(213, 64)
+id = 1
+
+[node name="2" parent="." instance=ExtResource("1_uhijb")]
+position = Vector2(361, 64)
+
+[node name="3" parent="." instance=ExtResource("1_uhijb")]
+position = Vector2(509, 64)
+id = 3
+
+[node name="4" parent="." instance=ExtResource("1_uhijb")]
+position = Vector2(657, 64)
+id = 4
+
+[connection signal="_connection_terminate" from="." to="0" method="severe_connection"]
+[connection signal="_connection_terminate" from="." to="1" method="severe_connection"]
+[connection signal="_connection_terminate" from="." to="2" method="severe_connection"]
+[connection signal="_connection_terminate" from="." to="3" method="severe_connection"]
+[connection signal="_connection_terminate" from="." to="4" method="severe_connection"]
+[connection signal="connection_form" from="." to="0" method="_on_word_connection_form"]
+[connection signal="connection_form" from="." to="1" method="_on_word_connection_form"]
+[connection signal="connection_form" from="." to="2" method="_on_word_connection_form"]
+[connection signal="connection_form" from="." to="3" method="_on_word_connection_form"]
+[connection signal="connection_form" from="." to="4" method="_on_word_connection_form"]

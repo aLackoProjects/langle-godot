@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://4k7y20exgm2"]
+
+[ext_resource type="PackedScene" uid="uid://dykfn7bxtpbng" path="res://word.tscn" id="1_q5ybe"]
+[ext_resource type="Script" path="res://words.gd" id="1_tuk2y"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 20
+script = ExtResource("1_tuk2y")
+
+[node name="1" parent="." instance=ExtResource("1_q5ybe")]
+layout_mode = 2
+
+[node name="2" parent="." instance=ExtResource("1_q5ybe")]
+layout_mode = 2
+
+[node name="3" parent="." instance=ExtResource("1_q5ybe")]
+layout_mode = 2
+
+[node name="4" parent="." instance=ExtResource("1_q5ybe")]
+layout_mode = 2
+
+[node name="5" parent="." instance=ExtResource("1_q5ybe")]
+layout_mode = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="submit" from="1" to="." method="_on__submit"]
+[connection signal="submit" from="2" to="." method="_on__submit"]
+[connection signal="submit" from="3" to="." method="_on__submit"]
+[connection signal="submit" from="4" to="." method="_on__submit"]
+[connection signal="submit" from="5" to="." method="_on__submit"]

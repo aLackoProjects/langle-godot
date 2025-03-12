@@ -1,0 +1,310 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqqhlbuy8y6mg"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_rwvay"]
+[ext_resource type="Texture2D" uid="uid://bihluyb4rdl0c" path="res://up.png" id="2_8d1ec"]
+[ext_resource type="Texture2D" uid="uid://dghhcpi37g1br" path="res://mod_open.png" id="3_3s26d"]
+[ext_resource type="Texture2D" uid="uid://bnbf1tdovhi27" path="res://folder.png" id="3_p7f1a"]
+[ext_resource type="Texture2D" uid="uid://bmi6ds1ukg5f" path="res://reset.png" id="5_o08hr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_638bi"]
+bg_color = Color(0.2, 0.2, 0.2, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wq06"]
+bg_color = Color(0.517647, 0.662745, 0.752941, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_imyjh"]
+default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vebh"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knlm6"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rhv7"]
+bg_color = Color(0.415686, 0.4, 0.639216, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[node name="hud" type="Control" node_paths=PackedStringArray("res_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwvay")
+res_button = NodePath("score/restart")
+
+[node name="background" type="Panel" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -972.0
+offset_bottom = -972.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_638bi")
+
+[node name="mods" type="Panel" parent="background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -598.5
+offset_top = -359.5
+offset_right = 601.5
+offset_bottom = 360.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wq06")
+
+[node name="s2" type="ScrollContainer" parent="background/mods"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 564.0
+offset_bottom = 137.0
+
+[node name="name" type="Label" parent="background/mods/s2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "MOD_NAME"
+
+[node name="s" type="ScrollContainer" parent="background/mods"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 128.0
+offset_right = 1160.0
+offset_bottom = 582.0
+
+[node name="description" type="Label" parent="background/mods/s"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "MOD_DESCRIPTION"
+
+[node name="main_folder" type="Button" parent="background/mods"]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 20.0
+offset_right = 1378.0
+offset_bottom = 348.0
+scale = Vector2(0.3, 0.3)
+tooltip_text = "Open Mod Directory"
+theme_override_font_sizes/font_size = 64
+icon = ExtResource("3_3s26d")
+
+[node name="select" type="OptionButton" parent="background/mods"]
+z_index = 2
+layout_mode = 0
+offset_left = 580.0
+offset_top = 20.0
+offset_right = 1025.0
+offset_bottom = 117.0
+theme = SubResource("Theme_imyjh")
+theme_override_font_sizes/font_size = 48
+allow_reselect = true
+
+[node name="local_mod_folder" type="Button" parent="background/mods"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 600.0
+offset_right = 368.0
+offset_bottom = 928.0
+scale = Vector2(0.3, 0.3)
+tooltip_text = "Open local mod Directory"
+theme_override_font_sizes/font_size = 64
+icon = ExtResource("3_p7f1a")
+
+[node name="open" type="Button" parent="."]
+process_mode = 3
+z_index = 1
+layout_mode = 0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 248.0
+offset_bottom = 248.0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(164, 164)
+tooltip_text = "Open HUD"
+icon = ExtResource("2_8d1ec")
+
+[node name="score" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = 614.0
+offset_right = 432.0
+offset_bottom = 1478.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vebh")
+
+[node name="Panel" type="Panel" parent="score"]
+show_behind_parent = true
+custom_minimum_size = Vector2(1728, 972)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -432.0
+offset_top = -54.0
+offset_right = 432.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="restart" type="Button" parent="score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.5
+offset_top = 68.0
+offset_right = 148.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/hover = SubResource("StyleBoxFlat_knlm6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_knlm6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2rhv7")
+text = "Restart"
+
+[node name="edit_word" type="Label" parent="score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.5
+offset_top = -112.0
+offset_right = 208.5
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "GREEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label_static" type="Label" parent="score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.5
+offset_top = -182.0
+offset_right = 213.5
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "The word was"
+
+[node name="score2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -658.0
+offset_top = -399.0
+offset_right = -17.0
+offset_bottom = -55.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vebh")
+
+[node name="edit_lang" type="Label" parent="score2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -447.0
+offset_top = -111.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "In English"
+horizontal_alignment = 2
+
+[node name="s2" type="ScrollContainer" parent="score2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 80.0
+offset_right = -21.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="edit_word" type="Label" parent="score2/s2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "GREEN"
+vertical_alignment = 1
+
+[node name="title_static" type="Label" parent="score2"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 447.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 64
+text = "It means:"
+
+[node name="reset" type="Button" parent="."]
+process_mode = 3
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = -80.0
+offset_right = 356.0
+offset_bottom = 256.0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(164, 164)
+tooltip_text = "Restart"
+icon = ExtResource("5_o08hr")
+
+[connection signal="pressed" from="background/mods/main_folder" to="." method="open_main_mod_directory"]
+[connection signal="item_selected" from="background/mods/select" to="." method="select_mod"]
+[connection signal="item_selected" from="background/mods/select" to="." method="emit_reset"]
+[connection signal="pressed" from="background/mods/local_mod_folder" to="." method="open_local_mod_folder"]
+[connection signal="pressed" from="open" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="score/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="reset" to="." method="spinny_boiiiiii"]
+[connection signal="pressed" from="reset" to="." method="_on_restart_pressed"]

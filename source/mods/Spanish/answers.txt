@@ -1,0 +1,29 @@
+verde,green
+negro,black
+perro,dog
+playa,beach
+llave,key
+pecho,chest
+cebra,zebra
+pared,wall
+silla,chair
+guapá,pretty
+queso,cheese
+hacer,to do / make
+tener,to have
+miedo,fear
+ruido,noise
+lugar,place
+papel,paper
+adios,goodbye
+poder,to can/ may
+decir,to say
+estar,to be
+bueno,good
+mejor,better
+reloj,watch
+bolsa,bag
+árbol,tree
+claro,right
+ahora,now
+gatto,cat
